@@ -1,0 +1,12 @@
+# Waveforms
+*.vcd
+
+# Testbenches starting with tb
+tb*.v
+
+# Icarus Verilog output executable
+sim
+a.out
+
+# Common temporary files
+*.log

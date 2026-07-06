@@ -6,7 +6,7 @@ module FIFO #(
     input   wire                    aresetn,
     input   wire                    wr_en,
     input   wire [DATA_WIDTH-1:0]   wr_data,
-    input   wire                    rd_en,
+    input   wire                    rd_en, 
     output  wire                    full,
     output  wire [DATA_WIDTH-1:0]   rd_data,
     output  wire                    empty

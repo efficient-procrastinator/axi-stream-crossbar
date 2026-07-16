@@ -27,6 +27,7 @@ module crossbar_top #(
 
     wire [IN_PORTS-1:0] arb_req   [0:OUT_PORTS-1];   
     wire [IN_PORTS-1:0] arb_grant [0:OUT_PORTS-1]; 
+    wire [OUT_PORTS-1:0] arb_advance;
 
 
     genvar in, out;
@@ -66,8 +67,11 @@ module crossbar_top #(
                 .clk(clk),
                 .aresetn(aresetn),
                 .req(arb_req[out]),
+                .advance(arb_advance[out]),
                 .grant(arb_grant[out])
             );
+
+            assign arb_advance[out] = (|arb_grant[out]) && m_tready[out];
         end
     endgenerate
     generate

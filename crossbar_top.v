@@ -74,7 +74,7 @@ module crossbar_top #(
         for (in = 0; in < IN_PORTS; in = in + 1) begin
             wire [OUT_PORTS-1:0] read_req;
             for (out = 0; out < OUT_PORTS; out = out + 1) begin
-                assign read_req[out] = arb_grant[out][in] && m_tready[in] && !fifo_empty[in]; 
+                assign read_req[out] = arb_grant[out][in] && m_tready[out] && !fifo_empty[in]; 
             end
             assign fifo_rd_en[in] = |read_req;
         end
